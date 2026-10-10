@@ -55,7 +55,7 @@ def get_item(item_id):
     ).fetchone()
     conn.close()
     if row is None:
-        return jsonify({"error": "not found"}), 404
+        return jsonify({}), 200
     return jsonify(dict(row))
 
 
