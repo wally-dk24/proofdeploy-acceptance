@@ -1,0 +1,13 @@
+# Item catalog API
+build: "python -m py_compile app.py"
+start: "python app.py"
+database:
+  kind: sqlite
+  path: ./app.db
+readiness: /health
+fixture:
+  repo_name: wally-dk24/proofdeploy-acceptance
+  seed_note: "No seed; items created via POST /items."
+  auth_mechanism: "none"
+  auth_scope: "No auth."
+  flags_note: "SQLite via DB_PATH."
