@@ -30,7 +30,7 @@ def health():
 @app.route("/items", methods=["GET"])
 def list_items():
     conn = get_db()
-    rows = conn.execute("SELECT id, name FROM items").fetchall()
+    rows = conn.execute("SELECT id, name FROM items ORDER BY name").fetchall()
     conn.close()
     return jsonify([dict(r) for r in rows])
 
